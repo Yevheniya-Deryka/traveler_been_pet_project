@@ -3,7 +3,6 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs"
 import { ChartLineIcon, UsersIcon, GearIcon, MapPinIcon } from "phosphor-react-native"
 import { useSafeAreaInsets } from "react-native-safe-area-context"
 
-import { EpisodeProvider } from "@/context/EpisodeContext"
 import { translate } from "@/i18n/translate"
 import FriendsScreen from "@/screens/FriendsScreen"
 import MapScreen from "@/screens/MapScreen"
@@ -24,75 +23,53 @@ export function BottomTabsNavigator() {
 	} = useAppTheme()
 
 	return (
-		<EpisodeProvider>
-			<Tab.Navigator
-				screenOptions={{
-					headerShown: false,
-					tabBarHideOnKeyboard: true,
-					tabBarStyle: themed([$tabBar, { height: bottom + 70 }]),
-					tabBarActiveTintColor: colors.text,
-					tabBarInactiveTintColor: colors.text,
-					tabBarLabelStyle: themed($tabBarLabel),
-					tabBarItemStyle: themed($tabBarItem),
+		<Tab.Navigator
+			screenOptions={{
+				headerShown: false,
+				tabBarHideOnKeyboard: true,
+				tabBarStyle: themed([$tabBar, { height: bottom + 70 }]),
+				tabBarActiveTintColor: colors.text,
+				tabBarInactiveTintColor: colors.text,
+				tabBarLabelStyle: themed($tabBarLabel),
+				tabBarItemStyle: themed($tabBarItem),
+			}}
+		>
+			<Tab.Screen
+				name={BottomTabScreens.Stats}
+				component={StatsScreen}
+				options={{
+					tabBarLabel: translate("bottomTabsNavigator:statsTab"),
+					tabBarIcon: ({ focused }) => <ChartLineIcon color={focused ? colors.tint : colors.tintInactive} size={30} />,
 				}}
-			>
-				<Tab.Screen
-					name={BottomTabScreens.Stats}
-					component={StatsScreen}
-					options={{
-						tabBarLabel: translate("bottomTabsNavigator:statsTab"),
-						tabBarIcon: ({ focused }) => (
-							<ChartLineIcon color={focused ? colors.tint : colors.tintInactive} size={30} />
-						),
-					}}
-				/>
+			/>
 
-				<Tab.Screen
-					name={BottomTabScreens.Map}
-					component={MapScreen}
-					options={{
-						tabBarLabel: translate("bottomTabsNavigator:mapTab"),
-						tabBarIcon: ({ focused }) => (
-							<MapPinIcon
-								weight={focused ? "bold" : "regular"}
-								color={focused ? colors.tint : colors.tintInactive}
-								size={30}
-							/>
-						),
-					}}
-				/>
+			<Tab.Screen
+				name={BottomTabScreens.Map}
+				component={MapScreen}
+				options={{
+					tabBarLabel: translate("bottomTabsNavigator:mapTab"),
+					tabBarIcon: ({ focused }) => <MapPinIcon color={focused ? colors.tint : colors.tintInactive} size={30} />,
+				}}
+			/>
 
-				<Tab.Screen
-					name={BottomTabScreens.Friends}
-					component={FriendsScreen}
-					options={{
-						tabBarLabel: translate("bottomTabsNavigator:friendsTab"),
-						tabBarIcon: ({ focused }) => (
-							<UsersIcon
-								weight={focused ? "bold" : "regular"}
-								color={focused ? colors.tint : colors.tintInactive}
-								size={30}
-							/>
-						),
-					}}
-				/>
+			<Tab.Screen
+				name={BottomTabScreens.Friends}
+				component={FriendsScreen}
+				options={{
+					tabBarLabel: translate("bottomTabsNavigator:friendsTab"),
+					tabBarIcon: ({ focused }) => <UsersIcon color={focused ? colors.tint : colors.tintInactive} size={30} />,
+				}}
+			/>
 
-				<Tab.Screen
-					name={BottomTabScreens.Settings}
-					component={SettingsScreen}
-					options={{
-						tabBarLabel: translate("bottomTabsNavigator:settingsTab"),
-						tabBarIcon: ({ focused }) => (
-							<GearIcon
-								weight={focused ? "bold" : "regular"}
-								color={focused ? colors.tint : colors.tintInactive}
-								size={30}
-							/>
-						),
-					}}
-				/>
-			</Tab.Navigator>
-		</EpisodeProvider>
+			<Tab.Screen
+				name={BottomTabScreens.Settings}
+				component={SettingsScreen}
+				options={{
+					tabBarLabel: translate("bottomTabsNavigator:settingsTab"),
+					tabBarIcon: ({ focused }) => <GearIcon color={focused ? colors.tint : colors.tintInactive} size={30} />,
+				}}
+			/>
+		</Tab.Navigator>
 	)
 }
 

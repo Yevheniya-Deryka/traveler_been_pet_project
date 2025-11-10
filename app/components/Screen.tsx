@@ -176,9 +176,7 @@ function ScreenWithoutScrolling(props: ScreenProps) {
 	const { style, contentContainerStyle, children, preset } = props
 	return (
 		<View style={[$outerStyle, style]}>
-			<View style={[$innerStyle, preset === "fixed" && $justifyFlexEnd, contentContainerStyle]}>
-				{children}
-			</View>
+			<View style={[$innerStyle, preset === "fixed" && $justifyFlexEnd, contentContainerStyle]}>{children}</View>
 		</View>
 	)
 }
@@ -219,11 +217,7 @@ function ScreenWithScrolling(props: ScreenProps) {
 				ScrollViewProps?.onContentSizeChange?.(w, h)
 			}}
 			style={[$outerStyle, ScrollViewProps?.style, style]}
-			contentContainerStyle={[
-				$innerStyle,
-				ScrollViewProps?.contentContainerStyle,
-				contentContainerStyle,
-			]}
+			contentContainerStyle={[$innerStyle, ScrollViewProps?.contentContainerStyle, contentContainerStyle]}
 		>
 			{children}
 		</KeyboardAwareScrollView>
@@ -255,17 +249,8 @@ export function Screen(props: ScreenProps) {
 	const $containerInsets = useSafeAreaInsetsStyle(safeAreaEdges)
 
 	return (
-		<View
-			style={[
-				$containerStyle,
-				{ backgroundColor: backgroundColor || colors.background },
-				$containerInsets,
-			]}
-		>
-			<SystemBars
-				style={systemBarStyle || (themeContext === "dark" ? "light" : "dark")}
-				{...SystemBarsProps}
-			/>
+		<View style={[$containerStyle, { backgroundColor: backgroundColor || colors.background }, $containerInsets]}>
+			<SystemBars style={systemBarStyle || (themeContext === "dark" ? "light" : "dark")} {...SystemBarsProps} />
 
 			<KeyboardAvoidingView
 				behavior={isIos ? "padding" : "height"}
@@ -273,11 +258,7 @@ export function Screen(props: ScreenProps) {
 				{...KeyboardAvoidingViewProps}
 				style={[$styles.flex1, KeyboardAvoidingViewProps?.style]}
 			>
-				{isNonScrolling(props.preset) ? (
-					<ScreenWithoutScrolling {...props} />
-				) : (
-					<ScreenWithScrolling {...props} />
-				)}
+				{isNonScrolling(props.preset) ? <ScreenWithoutScrolling {...props} /> : <ScreenWithScrolling {...props} />}
 			</KeyboardAvoidingView>
 		</View>
 	)
