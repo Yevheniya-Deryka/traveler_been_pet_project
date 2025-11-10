@@ -1,8 +1,8 @@
 import { TextStyle, ViewStyle } from "react-native"
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs"
+import { ChartLineIcon, UsersIcon, GearIcon, MapPinIcon } from "phosphor-react-native"
 import { useSafeAreaInsets } from "react-native-safe-area-context"
 
-import { Icon } from "@/components/Icon"
 import { EpisodeProvider } from "@/context/EpisodeContext"
 import { translate } from "@/i18n/translate"
 import FriendsScreen from "@/screens/FriendsScreen"
@@ -42,7 +42,7 @@ export function BottomTabsNavigator() {
 					options={{
 						tabBarLabel: translate("bottomTabsNavigator:statsTab"),
 						tabBarIcon: ({ focused }) => (
-							<Icon icon="components" color={focused ? colors.tint : colors.tintInactive} size={30} />
+							<ChartLineIcon color={focused ? colors.tint : colors.tintInactive} size={30} />
 						),
 					}}
 				/>
@@ -53,7 +53,11 @@ export function BottomTabsNavigator() {
 					options={{
 						tabBarLabel: translate("bottomTabsNavigator:mapTab"),
 						tabBarIcon: ({ focused }) => (
-							<Icon icon="community" color={focused ? colors.tint : colors.tintInactive} size={30} />
+							<MapPinIcon
+								weight={focused ? "bold" : "regular"}
+								color={focused ? colors.tint : colors.tintInactive}
+								size={30}
+							/>
 						),
 					}}
 				/>
@@ -64,7 +68,11 @@ export function BottomTabsNavigator() {
 					options={{
 						tabBarLabel: translate("bottomTabsNavigator:friendsTab"),
 						tabBarIcon: ({ focused }) => (
-							<Icon icon="podcast" color={focused ? colors.tint : colors.tintInactive} size={30} />
+							<UsersIcon
+								weight={focused ? "bold" : "regular"}
+								color={focused ? colors.tint : colors.tintInactive}
+								size={30}
+							/>
 						),
 					}}
 				/>
@@ -75,7 +83,11 @@ export function BottomTabsNavigator() {
 					options={{
 						tabBarLabel: translate("bottomTabsNavigator:settingsTab"),
 						tabBarIcon: ({ focused }) => (
-							<Icon icon="debug" color={focused ? colors.tint : colors.tintInactive} size={30} />
+							<GearIcon
+								weight={focused ? "bold" : "regular"}
+								color={focused ? colors.tint : colors.tintInactive}
+								size={30}
+							/>
 						),
 					}}
 				/>
