@@ -1,8 +1,8 @@
 import { ErrorInfo, FC } from "react"
 import { ScrollView, TextStyle, View, ViewStyle } from "react-native"
+import { BugIcon } from "phosphor-react-native"
 
 import { Button } from "@/components/Button"
-import { Icon } from "@/components/Icon"
 import { Screen } from "@/components/Screen"
 import { Text } from "@/components/Text"
 import { useAppTheme } from "@/providers/theme/ThemeProvider"
@@ -20,7 +20,7 @@ const ErrorScreen: FC<ErrorDetailsProps> = ({ error, errorInfo, onReset }) => {
 	return (
 		<Screen preset="fixed" safeAreaEdges={["top", "bottom"]} contentContainerStyle={themed($contentContainer)}>
 			<View style={$topSection}>
-				<Icon icon="ladybug" size={64} />
+				<BugIcon size={64} />
 				<Text style={themed($heading)} preset="subheading" tx="errorScreen:title" />
 				<Text tx="errorScreen:friendlySubtitle" />
 			</View>
