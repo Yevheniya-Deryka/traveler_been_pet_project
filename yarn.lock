@@ -3217,6 +3217,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/geojson@npm:^7946.0.13":
+  version: 7946.0.16
+  resolution: "@types/geojson@npm:7946.0.16"
+  checksum: 10c0/1ff24a288bd5860b766b073ead337d31d73bdc715e5b50a2cee5cb0af57a1ed02cc04ef295f5fa68dc40fe3e4f104dd31282b2b818a5ba3231bc1001ba084e3c
+  languageName: node
+  linkType: hard
+
 "@types/graceful-fs@npm:^4.1.3":
   version: 4.1.9
   resolution: "@types/graceful-fs@npm:4.1.9"
@@ -4292,6 +4299,7 @@ __metadata:
     babel-jest: "npm:^29.2.1"
     date-fns: "npm:^4.1.0"
     dependency-cruiser: "npm:^17.0.2"
+    dotenv: "npm:^17.2.3"
     eslint: "npm:^8.57.0"
     eslint-config-expo: "npm:~10.0.0"
     eslint-config-prettier: "npm:^9.1.0"
@@ -4321,6 +4329,7 @@ __metadata:
     react-native-edge-to-edge: "npm:~1.6.1"
     react-native-gesture-handler: "npm:~2.28.0"
     react-native-keyboard-controller: "npm:1.18.5"
+    react-native-maps: "npm:^1.26.18"
     react-native-mmkv: "npm:3.3.3"
     react-native-reanimated: "npm:~4.1.1"
     react-native-safe-area-context: "npm:5.6.0"
@@ -5293,6 +5302,13 @@ __metadata:
   version: 16.6.1
   resolution: "dotenv@npm:16.6.1"
   checksum: 10c0/15ce56608326ea0d1d9414a5c8ee6dcf0fffc79d2c16422b4ac2268e7e2d76ff5a572d37ffe747c377de12005f14b3cc22361e79fc7f1061cce81f77d2c973dc
+  languageName: node
+  linkType: hard
+
+"dotenv@npm:^17.2.3":
+  version: 17.2.3
+  resolution: "dotenv@npm:17.2.3"
+  checksum: 10c0/c884403209f713214a1b64d4d1defa4934c2aa5b0002f5a670ae298a51e3c3ad3ba79dfee2f8df49f01ae74290fcd9acdb1ab1d09c7bfb42b539036108bb2ba0
   languageName: node
   linkType: hard
 
@@ -10566,6 +10582,22 @@ __metadata:
     react-native: "*"
     react-native-reanimated: ">=3.0.0"
   checksum: 10c0/708b8c299fdfc11749db4d84238330a2f04a07a92f40a5f0aa2870ffedb9e47c05455d50c3441a321f5cd5cacf7c936d5706e74cfb234a132e6c6c9ebb0d5e57
+  languageName: node
+  linkType: hard
+
+"react-native-maps@npm:^1.26.18":
+  version: 1.26.18
+  resolution: "react-native-maps@npm:1.26.18"
+  dependencies:
+    "@types/geojson": "npm:^7946.0.13"
+  peerDependencies:
+    react: ">= 18.3.1"
+    react-native: ">= 0.76.0"
+    react-native-web: ">= 0.11"
+  peerDependenciesMeta:
+    react-native-web:
+      optional: true
+  checksum: 10c0/ffa2fb0cfb848f37ffca44ca4e59526634e0de52488b168301e1272681cba79bc48a5cc3f677bbffe9d3b0c0b6fac3221edefcfe12a25ced86fc126d5d5d8958
   languageName: node
   linkType: hard
 

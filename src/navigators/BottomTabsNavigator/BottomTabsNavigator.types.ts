@@ -1,7 +1,7 @@
 import { BottomTabScreenProps } from "@react-navigation/bottom-tabs"
 import { CompositeScreenProps } from "@react-navigation/native"
 
-import { AppStackParamList, AppStackScreenProps } from "../MainStackNavigator/MainStackNavigator.types"
+import { MainStackParamList, MainStackScreenProps } from "../MainStackNavigator/MainStackNavigator.types"
 
 export enum BottomTabScreens {
 	Stats = "Stats",
@@ -19,5 +19,5 @@ export type BottomTabParamList = {
 
 export type BottomTabStackScreenProps<T extends keyof BottomTabParamList> = CompositeScreenProps<
 	BottomTabScreenProps<BottomTabParamList, T>,
-	AppStackScreenProps<keyof AppStackParamList>
+	MainStackScreenProps<keyof MainStackParamList>
 >

@@ -1,8 +1,8 @@
 import { useEffect, useRef, useCallback } from "react"
 import { Image, ImageStyle, Animated, StyleProp, View, ViewStyle } from "react-native"
 
-import { useAppTheme } from "@/providers/theme/ThemeProvider"
 import { $styles } from "@/providers/theme/styles"
+import { useAppTheme } from "@/providers/theme/ThemeProvider"
 
 import { iconRegistry, IconTypes } from "../Icon"
 import { $inputOuterBase, BaseToggleInputProps, ToggleProps, Toggle } from "./Toggle"
@@ -87,11 +87,7 @@ function CheckboxInput(props: CheckboxInputProps) {
 
 	return (
 		<View
-			style={[
-				$inputOuter,
-				{ backgroundColor: offBackgroundColor, borderColor: outerBorderColor },
-				$outerStyleOverride,
-			]}
+			style={[$inputOuter, { backgroundColor: offBackgroundColor, borderColor: outerBorderColor }, $outerStyleOverride]}
 		>
 			<Animated.View
 				style={[
@@ -103,11 +99,7 @@ function CheckboxInput(props: CheckboxInputProps) {
 			>
 				<Image
 					source={icon ? iconRegistry[icon] : iconRegistry.check}
-					style={[
-						$checkboxDetail,
-						!!iconTintColor && { tintColor: iconTintColor },
-						$detailStyleOverride as ImageStyle,
-					]}
+					style={[$checkboxDetail, !!iconTintColor && { tintColor: iconTintColor }, $detailStyleOverride as ImageStyle]}
 				/>
 			</Animated.View>
 		</View>

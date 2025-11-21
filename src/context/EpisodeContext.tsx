@@ -1,12 +1,4 @@
-import {
-	createContext,
-	FC,
-	PropsWithChildren,
-	useCallback,
-	useContext,
-	useMemo,
-	useState,
-} from "react"
+import { createContext, FC, PropsWithChildren, useCallback, useContext, useMemo, useState } from "react"
 
 import { translate } from "src/i18n/translate"
 import { api } from "src/services/api"
@@ -57,10 +49,7 @@ export const EpisodeProvider: FC<PropsWithChildren<EpisodeProviderProps>> = ({ c
 		[favorites],
 	)
 
-	const hasFavorite = useCallback(
-		(episode: EpisodeItem) => favorites.some((fav) => fav === episode.guid),
-		[favorites],
-	)
+	const hasFavorite = useCallback((episode: EpisodeItem) => favorites.some((fav) => fav === episode.guid), [favorites])
 
 	const episodesForList = useMemo(() => {
 		return favoritesOnly ? episodes.filter((episode) => favorites.includes(episode.guid)) : episodes

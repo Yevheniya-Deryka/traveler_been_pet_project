@@ -8,8 +8,9 @@ import { ArgType } from "reactotron-core-client"
 import { ReactotronReactNative } from "reactotron-react-native"
 import mmkvPlugin from "reactotron-react-native-mmkv"
 
-import { goBack, resetRoot, navigate } from "@/utils/navigationUtilities"
 import { storage } from "src/utils/storage"
+
+import { goBack, resetRoot, navigate } from "@/utils/navigationUtilities"
 
 import { Reactotron } from "./ReactotronClient"
 

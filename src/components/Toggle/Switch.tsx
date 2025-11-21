@@ -1,10 +1,11 @@
 import { useEffect, useMemo, useRef, useCallback } from "react"
 import { Animated, Image, ImageStyle, Platform, StyleProp, View, ViewStyle } from "react-native"
-
 import { iconRegistry } from "src/components/Icon"
+
 import { isRTL } from "src/i18n"
-import { useAppTheme } from "@/providers/theme/ThemeProvider"
+
 import { $styles } from "@/providers/theme/styles"
+import { useAppTheme } from "@/providers/theme/ThemeProvider"
 import type { ThemedStyle } from "@/providers/theme/types"
 
 import { $inputOuterBase, BaseToggleInputProps, Toggle, ToggleProps } from "./Toggle"
@@ -33,9 +34,7 @@ interface SwitchInputProps extends BaseToggleInputProps<SwitchToggleProps> {
 export function Switch(props: SwitchToggleProps) {
 	const { accessibilityMode, ...rest } = props
 	const switchInput = useCallback(
-		(toggleProps: SwitchInputProps) => (
-			<SwitchInput {...toggleProps} accessibilityMode={accessibilityMode} />
-		),
+		(toggleProps: SwitchInputProps) => <SwitchInput {...toggleProps} accessibilityMode={accessibilityMode} />,
 		[accessibilityMode],
 	)
 	return <Toggle accessibilityRole="switch" {...rest} ToggleInput={switchInput} />
@@ -220,10 +219,7 @@ function SwitchAccessibilityLabel(props: SwitchInputProps & { role: "on" | "off"
 	)
 }
 
-const $inputOuter: StyleProp<ViewStyle> = [
-	$inputOuterBase,
-	{ height: 32, width: 56, borderRadius: 16, borderWidth: 0 },
-]
+const $inputOuter: StyleProp<ViewStyle> = [$inputOuterBase, { height: 32, width: 56, borderRadius: 16, borderWidth: 0 }]
 
 const $switchInner: ThemedStyle<ViewStyle> = ({ colors }) => ({
 	borderColor: colors.transparent,

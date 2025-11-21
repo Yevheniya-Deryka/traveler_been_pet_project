@@ -1,6 +1,7 @@
 import { Image, ImageProps, ImageStyle, StyleProp, TextStyle, View, ViewStyle } from "react-native"
 
 import { translate } from "src/i18n/translate"
+
 import { useAppTheme } from "@/providers/theme/ThemeProvider"
 import type { ThemedStyle } from "@/providers/theme/types"
 
@@ -193,12 +194,7 @@ export function EmptyState(props: EmptyStateProps) {
 	return (
 		<View style={$containerStyles}>
 			{isImagePresent && (
-				<Image
-					source={imageSource}
-					{...ImageProps}
-					style={$imageStyles}
-					tintColor={theme.colors.palette.neutral900}
-				/>
+				<Image source={imageSource} {...ImageProps} style={$imageStyles} tintColor={theme.colors.palette.neutral900} />
 			)}
 
 			{isHeadingPresent && (
@@ -213,13 +209,7 @@ export function EmptyState(props: EmptyStateProps) {
 			)}
 
 			{isContentPresent && (
-				<Text
-					text={content}
-					tx={contentTx}
-					txOptions={contentTxOptions}
-					{...ContentTextProps}
-					style={$contentStyles}
-				/>
+				<Text text={content} tx={contentTx} txOptions={contentTxOptions} {...ContentTextProps} style={$contentStyles} />
 			)}
 
 			{isButtonPresent && (

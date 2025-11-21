@@ -13,8 +13,8 @@ import {
 	ViewStyle,
 } from "react-native"
 
-import { useAppTheme } from "@/providers/theme/ThemeProvider"
 import { $styles } from "@/providers/theme/styles"
+import { useAppTheme } from "@/providers/theme/ThemeProvider"
 import type { ThemedStyle } from "@/providers/theme/types"
 
 import { Text, TextProps } from "../Text"
@@ -156,11 +156,7 @@ export function Toggle<T>(props: ToggleProps<T>) {
 
 	const $containerStyles = [$containerStyleOverride]
 	const $inputWrapperStyles = [$styles.row, $inputWrapper, $inputWrapperStyleOverride]
-	const $helperStyles = themed([
-		$helper,
-		status === "error" && { color: colors.error },
-		HelperTextProps?.style,
-	])
+	const $helperStyles = themed([$helper, status === "error" && { color: colors.error }, HelperTextProps?.style])
 
 	/**
 	 * @param {GestureResponderEvent} e - The event object.

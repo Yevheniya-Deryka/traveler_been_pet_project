@@ -1,4 +1,5 @@
 import { ExpoConfig, ConfigContext } from "@expo/config"
+import * as dotenv from "dotenv"
 
 /**
  * Use tsx/cjs here so we can use TypeScript for our Config Plugins
@@ -8,6 +9,8 @@ import { ExpoConfig, ConfigContext } from "@expo/config"
  */
 import "tsx/cjs"
 
+dotenv.config()
+
 /**
  * @param config ExpoConfig coming from the static config app.json if it exists
  *
@@ -16,6 +19,22 @@ import "tsx/cjs"
  */
 module.exports = ({ config }: ConfigContext): Partial<ExpoConfig> => {
 	const existingPlugins = config.plugins ?? []
+
+	const iosGoogleMapsApiKey = process.env.IOS_GOOGLE_MAPS_API_KEY
+	const androidGoogleMapsApiKey = process.env.ANDROID_GOOGLE_MAPS_API_KEY
+
+	const mapsPlugin: [string, { iosGoogleMapsApiKey?: string; androidGoogleMapsApiKey?: string }] = [
+		"react-native-maps",
+		{},
+	]
+
+	if (iosGoogleMapsApiKey) {
+		mapsPlugin[1].iosGoogleMapsApiKey = iosGoogleMapsApiKey
+	}
+
+	if (androidGoogleMapsApiKey) {
+		mapsPlugin[1].androidGoogleMapsApiKey = androidGoogleMapsApiKey
+	}
 
 	return {
 		...config,
@@ -36,6 +55,6 @@ module.exports = ({ config }: ConfigContext): Partial<ExpoConfig> => {
 				],
 			},
 		},
-		plugins: [...existingPlugins],
+		plugins: [...existingPlugins, mapsPlugin],
 	}
 }

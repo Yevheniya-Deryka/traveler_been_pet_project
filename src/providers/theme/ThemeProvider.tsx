@@ -126,9 +126,4 @@ const ThemeProvider: FC<PropsWithChildren<ThemeProviderProps>> = ({ children, in
 	return <ThemeContext.Provider value={value}>{children}</ThemeContext.Provider>
 }
 
-/**
- * This is the primary hook that you will use to access the theme context in your components.
- * Documentation: https://docs.infinite.red/ignite-cli/boilerplate/app/theme/useAppTheme.tsx/
- */
-
 export default ThemeProvider

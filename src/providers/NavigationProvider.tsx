@@ -3,8 +3,8 @@ import { NavigationContainer } from "@react-navigation/native"
 
 import Config from "@/config"
 import { NavigationProps } from "@/navigators/MainStackNavigator/MainStackNavigator.types"
-import { navigationRef, useBackButtonHandler } from "@/utils/navigationUtilities"
 import { useAppTheme } from "@/providers/theme/ThemeProvider"
+import { navigationRef, useBackButtonHandler } from "@/utils/navigationUtilities"
 
 /**
  * This is a list of all the route names that will exit the app if the back button

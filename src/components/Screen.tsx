@@ -14,9 +14,9 @@ import { useScrollToTop } from "@react-navigation/native"
 import { SystemBars, SystemBarsProps, SystemBarStyle } from "react-native-edge-to-edge"
 import { KeyboardAwareScrollView } from "react-native-keyboard-controller"
 
-import { useAppTheme } from "@/providers/theme/ThemeProvider"
-import { $styles } from "@/providers/theme/styles"
 import { ExtendedEdge, useSafeAreaInsetsStyle } from "@/hooks/useSafeAreaInsetsStyle"
+import { $styles } from "@/providers/theme/styles"
+import { useAppTheme } from "@/providers/theme/ThemeProvider"
 
 export const DEFAULT_BOTTOM_OFFSET = 50
 

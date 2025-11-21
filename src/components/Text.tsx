@@ -5,6 +5,7 @@ import { TOptions } from "i18next"
 
 import { isRTL, TxKeyPath } from "src/i18n"
 import { translate } from "src/i18n/translate"
+
 import { useAppTheme } from "@/providers/theme/ThemeProvider"
 import type { ThemedStyle, ThemedStyleArray } from "@/providers/theme/types"
 import { typography } from "@/providers/theme/typography"

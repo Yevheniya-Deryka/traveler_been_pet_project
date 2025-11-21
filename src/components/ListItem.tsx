@@ -1,15 +1,8 @@
 import { forwardRef, ReactElement } from "react"
-import {
-	StyleProp,
-	TextStyle,
-	TouchableOpacity,
-	TouchableOpacityProps,
-	View,
-	ViewStyle,
-} from "react-native"
+import { StyleProp, TextStyle, TouchableOpacity, TouchableOpacityProps, View, ViewStyle } from "react-native"
 
-import { useAppTheme } from "@/providers/theme/ThemeProvider"
 import { $styles } from "@/providers/theme/styles"
+import { useAppTheme } from "@/providers/theme/ThemeProvider"
 import type { ThemedStyle } from "@/providers/theme/types"
 
 import { Icon, IconTypes } from "./Icon"
@@ -106,10 +99,7 @@ interface ListItemActionProps {
  * @param {ListItemProps} props - The props for the `ListItem` component.
  * @returns {JSX.Element} The rendered `ListItem` component.
  */
-export const ListItem = forwardRef<View, ListItemProps>(function ListItem(
-	props: ListItemProps,
-	ref,
-) {
+export const ListItem = forwardRef<View, ListItemProps>(function ListItem(props: ListItemProps, ref) {
 	const {
 		bottomSeparator,
 		children,
@@ -140,11 +130,7 @@ export const ListItem = forwardRef<View, ListItemProps>(function ListItem(
 
 	const $textStyles = [$textStyle, $textStyleOverride, TextProps?.style]
 
-	const $containerStyles = [
-		topSeparator && $separatorTop,
-		bottomSeparator && $separatorBottom,
-		$containerStyleOverride,
-	]
+	const $containerStyles = [topSeparator && $separatorTop, bottomSeparator && $separatorBottom, $containerStyleOverride]
 
 	const $touchableStyles = [$styles.row, $touchableStyle, { minHeight: height }, style]
 
@@ -153,13 +139,7 @@ export const ListItem = forwardRef<View, ListItemProps>(function ListItem(
 	return (
 		<View ref={ref} style={themed($containerStyles)}>
 			<Wrapper {...TouchableOpacityProps} style={$touchableStyles}>
-				<ListItemAction
-					side="left"
-					size={height}
-					icon={leftIcon}
-					iconColor={leftIconColor}
-					Component={LeftComponent}
-				/>
+				<ListItemAction side="left" size={height} icon={leftIcon} iconColor={leftIconColor} Component={LeftComponent} />
 
 				<Text {...TextProps} tx={tx} text={text} txOptions={txOptions} style={themed($textStyles)}>
 					{children}
