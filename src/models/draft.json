@@ -1,0 +1,46 @@
+// User
+
+{
+	"id": 1,
+	"name": "Petryk Pyatochkin",
+	"profilePicture": "https://via.placeholder.com/150",
+	"createdAt": "2024-10-05T14:48:00.000Z",
+	"updatedAt": "2024-10-05T14:48:00.000Z"
+}
+
+// Followee
+
+{
+	"id": 1,
+	"followerId": 1,
+	"followeeId": 2,
+	"createdAt": "2024-10-05T14:48:00.000Z",
+	"updatedAt": "2024-10-05T14:48:00.000Z"
+}
+
+// Place
+
+{
+	"id": 1,
+	"createdBy": 1,
+	"name": "Kyiv",
+	"beenAt": "2025-10-05T14:48:00.000Z",
+	"latitude": 50.4501,
+	"longitude": 30.5234,
+	"coverImage": "https://via.placeholder.com/150",
+	"note": "Kyiv is the capital of Ukraine",
+	"isPrivate": false,
+	"createdAt": "2024-10-05T14:48:00.000Z",
+	"updatedAt": "2024-10-05T14:48:00.000Z"
+}
+
+// Photo
+
+{
+	"id": 1,
+	"placeId": 1,
+	"image": "https://via.placeholder.com/150",
+	"isPrivate": false,
+	"createdAt": "2024-10-05T14:48:00.000Z",
+	"updatedAt": "2024-10-05T14:48:00.000Z"
+}
