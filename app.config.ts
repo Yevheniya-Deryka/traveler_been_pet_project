@@ -1,5 +1,5 @@
-import { ExpoConfig, ConfigContext } from "@expo/config"
-import * as dotenv from "dotenv"
+import { ExpoConfig, ConfigContext } from '@expo/config'
+import * as dotenv from 'dotenv'
 
 /**
  * Use tsx/cjs here so we can use TypeScript for our Config Plugins
@@ -7,7 +7,7 @@ import * as dotenv from "dotenv"
  *
  * See https://docs.expo.dev/config-plugins/plugins/#add-typescript-support-and-convert-to-dynamic-app-config
  */
-import "tsx/cjs"
+import 'tsx/cjs'
 
 dotenv.config()
 
@@ -24,7 +24,7 @@ module.exports = ({ config }: ConfigContext): Partial<ExpoConfig> => {
 	const androidGoogleMapsApiKey = process.env.ANDROID_GOOGLE_MAPS_API_KEY
 
 	const mapsPlugin: [string, { iosGoogleMapsApiKey?: string; androidGoogleMapsApiKey?: string }] = [
-		"react-native-maps",
+		'react-native-maps',
 		{},
 	]
 
@@ -49,8 +49,8 @@ module.exports = ({ config }: ConfigContext): Partial<ExpoConfig> => {
 			privacyManifests: {
 				NSPrivacyAccessedAPITypes: [
 					{
-						NSPrivacyAccessedAPIType: "NSPrivacyAccessedAPICategoryUserDefaults",
-						NSPrivacyAccessedAPITypeReasons: ["CA92.1"], // CA92.1 = "Access info from same app, per documentation"
+						NSPrivacyAccessedAPIType: 'NSPrivacyAccessedAPICategoryUserDefaults',
+						NSPrivacyAccessedAPITypeReasons: ['CA92.1'], // CA92.1 = "Access info from same app, per documentation"
 					},
 				],
 			},

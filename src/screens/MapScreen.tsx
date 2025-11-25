@@ -1,5 +1,5 @@
-import { View, ViewStyle, StyleSheet } from "react-native"
-import MapView, { PROVIDER_GOOGLE } from "react-native-maps"
+import { View, ViewStyle, StyleSheet } from 'react-native'
+import MapView, { PROVIDER_GOOGLE } from 'react-native-maps'
 
 const MapScreen = () => {
 	return (
@@ -20,8 +20,8 @@ const MapScreen = () => {
 
 const $screen: ViewStyle = {
 	flex: 1,
-	justifyContent: "center",
-	alignItems: "center",
+	justifyContent: 'center',
+	alignItems: 'center',
 }
 
 const $map: ViewStyle = {

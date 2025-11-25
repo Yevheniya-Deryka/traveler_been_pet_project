@@ -16,6 +16,7 @@
   ],
   "android": {
     "icon": "./assets/images/app-icon-android-legacy.png",
+    "googleServicesFile": "./google-services.json",
     "package": "com.traveler.been",
     "adaptiveIcon": {
       "foregroundImage": "./assets/images/app-icon-android-adaptive-foreground.png",
@@ -27,6 +28,7 @@
   "ios": {
     "icon": "./assets/images/app-icon-ios.png",
     "supportsTablet": true,
+    "googleServicesFile": "./GoogleService-Info.plist",
     "bundleIdentifier": "com.traveler.been"
   },
   "web": {
@@ -35,6 +37,8 @@
   },
   "plugins": [
     "expo-localization",
+    "@react-native-firebase/app",
+    "@react-native-firebase/auth",
     "expo-font",
     [
       "expo-splash-screen",
@@ -54,7 +58,20 @@
         }
       }
     ],
-    "expo-build-properties"
+		[
+      "expo-build-properties",
+      {
+        "ios": {
+          "useFrameworks": "static",
+					"forceStaticLinking": [
+              "RNFBApp",
+              "RNFBAuth",
+              "RNFBFirestore",
+              "RNFBStorage"
+            ]
+        }
+      }
+    ]
   ],
   "experiments": {
     "tsconfigPaths": true
@@ -62,6 +79,9 @@
   "extra": {
     "ignite": {
       "version": "11.3.2"
+    },
+    "eas": {
+      "projectId": "2ceb3e0d-8210-4118-b203-3167eae2f367"
     }
   }
 }
