@@ -1,11 +1,11 @@
-import { View, ViewStyle, StyleSheet } from 'react-native'
+import { View, ViewStyle, StyleSheet, Platform } from 'react-native'
 import MapView, { PROVIDER_GOOGLE } from 'react-native-maps'
 
 const MapScreen = () => {
 	return (
 		<View style={$screen}>
 			<MapView
-				provider={PROVIDER_GOOGLE}
+				provider={Platform.OS === 'android' ? PROVIDER_GOOGLE : undefined} // map doesnt show up on ios with google provider. use_frameworks issue: https://github.com/react-native-maps/react-native-maps/issues/5541
 				style={$map}
 				region={{
 					latitude: 50.4501,

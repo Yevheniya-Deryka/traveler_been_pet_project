@@ -1,23 +1,23 @@
-import { TextStyle, View, ViewStyle } from "react-native"
+import { TextStyle, View, ViewStyle } from 'react-native'
 
-import { Button } from "src/components/Button"
-import { Text } from "src/components/Text"
+import { Button } from 'src/components/Button'
+import { Text } from 'src/components/Text'
 
-import { useAppTheme } from "@/providers/theme/ThemeProvider"
-import type { ThemedStyle } from "@/providers/theme/types"
+import { useAppTheme } from '@/providers/theme/ThemeProvider'
+import type { ThemedStyle } from '@/providers/theme/types'
 
 const SettingsScreen = () => {
 	const { themeContext, setThemeContextOverride, themed } = useAppTheme()
 
 	const toggleTheme = () => {
-		setThemeContextOverride(themeContext === "dark" ? "light" : "dark")
+		setThemeContextOverride(themeContext === 'dark' ? 'light' : 'dark')
 	}
 
 	return (
 		<View style={themed($screenContentContainer)}>
 			<Text style={themed($title)}>Settings</Text>
 			<Button
-				tx={themeContext === "dark" ? "settingsScreen:switchToLightTheme" : "settingsScreen:switchToDarkTheme"}
+				tx={themeContext === 'dark' ? 'settingsScreen:switchToLightTheme' : 'settingsScreen:switchToDarkTheme'}
 				onPress={toggleTheme}
 				style={themed($button)}
 			/>
@@ -27,8 +27,8 @@ const SettingsScreen = () => {
 
 const $screenContentContainer: ThemedStyle<ViewStyle> = ({ spacing, colors }) => ({
 	padding: spacing.lg,
-	alignItems: "center",
-	justifyContent: "center",
+	alignItems: 'center',
+	justifyContent: 'center',
 	flex: 1,
 	backgroundColor: colors.background,
 })

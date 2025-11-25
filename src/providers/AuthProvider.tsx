@@ -1,15 +1,9 @@
-import { createContext, FC, PropsWithChildren, useCallback, useContext, useMemo } from 'react'
-import { useMMKVString } from 'react-native-mmkv'
+import { createContext, FC, PropsWithChildren, useCallback, useContext, useEffect, useState } from 'react'
+import { getAuth, onAuthStateChanged, FirebaseAuthTypes } from '@react-native-firebase/auth'
 
 export type AuthContextType = {
-	isAuthenticated: boolean
+	isInitialized: boolean
 	userId?: string
-	authToken?: string
-	authEmail?: string
-	setAuthToken: (token?: string) => void
-	setAuthEmail: (email: string) => void
-	logout: () => void
-	validationError: string
 }
 
 export const AuthContext = createContext<AuthContextType | null>(null)
@@ -21,32 +15,28 @@ export const useAuthContext = () => {
 }
 
 const AuthProvider: FC<PropsWithChildren> = ({ children }) => {
-	const [authToken, setAuthToken] = useMMKVString('AuthProvider.authToken')
-	const [authEmail, setAuthEmail] = useMMKVString('AuthProvider.authEmail')
+	const [isInitialized, setIsInitialized] = useState(false)
+	const [user, setUser] = useState<FirebaseAuthTypes.User | null>(null)
 
-	const userId = 'user-id' // Placeholder for now
+	const handleAuthStateChanged: FirebaseAuthTypes.AuthListenerCallback = useCallback(
+		(user) => {
+			setUser(user)
+			if (!isInitialized) {
+				setIsInitialized(true)
+			}
+		},
+		[isInitialized],
+	)
 
-	const logout = useCallback(() => {
-		setAuthToken(undefined)
-		setAuthEmail('')
-	}, [setAuthEmail, setAuthToken])
-
-	const validationError = useMemo(() => {
-		if (!authEmail || authEmail.length === 0) return "can't be blank"
-		if (authEmail.length < 6) return 'must be at least 6 characters'
-		if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(authEmail)) return 'must be a valid email address'
-		return ''
-	}, [authEmail])
+	useEffect(() => {
+		const auth = getAuth()
+		const unsubscribe = onAuthStateChanged(auth, handleAuthStateChanged)
+		return unsubscribe
+	}, [handleAuthStateChanged])
 
 	const value = {
-		isAuthenticated: !!authToken,
-		userId, // Placeholder for now
-		authToken,
-		authEmail,
-		setAuthToken,
-		setAuthEmail,
-		logout,
-		validationError,
+		isInitialized,
+		userId: user?.uid,
 	}
 
 	return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>

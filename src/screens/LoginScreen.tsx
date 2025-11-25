@@ -2,10 +2,10 @@ import { View, ViewStyle } from 'react-native'
 
 import { Text } from 'src/components/Text'
 
-const StatsScreen = () => {
+const LoginScreen = () => {
 	return (
 		<View style={$screen}>
-			<Text>Stats</Text>
+			<Text>Login</Text>
 		</View>
 	)
 }
@@ -16,4 +16,4 @@ const $screen: ViewStyle = {
 	alignItems: 'center',
 }
 
-export default StatsScreen
+export default LoginScreen
