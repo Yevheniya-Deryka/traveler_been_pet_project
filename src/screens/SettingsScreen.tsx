@@ -1,8 +1,7 @@
 import { TextStyle, View, ViewStyle } from 'react-native'
 
-import { Button } from 'src/components/Button'
-import { Text } from 'src/components/Text'
-
+import { Button } from '@/components/Button'
+import { Text } from '@/components/Text'
 import { useAppTheme } from '@/providers/theme/ThemeProvider'
 import type { ThemedStyle } from '@/providers/theme/types'
 
