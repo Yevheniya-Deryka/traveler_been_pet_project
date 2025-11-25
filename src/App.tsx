@@ -1,23 +1,23 @@
-import "@/utils/gestureHandler"
-import { FC, useEffect, useState } from "react"
-import { useFonts } from "expo-font"
+import '@/utils/gestureHandler'
+import { FC, useEffect, useState } from 'react'
+import { useFonts } from 'expo-font'
 // import * as Linking from "expo-linking"
-import { KeyboardProvider } from "react-native-keyboard-controller"
-import { initialWindowMetrics, SafeAreaProvider } from "react-native-safe-area-context"
+import { KeyboardProvider } from 'react-native-keyboard-controller'
+import { initialWindowMetrics, SafeAreaProvider } from 'react-native-safe-area-context'
 
-import Config from "@/config"
-import { initI18n } from "@/i18n"
-import MainStackNavigator from "@/navigators/MainStackNavigator/MainStackNavigator"
-import { AppErrorBoundary } from "@/providers/AppErrorBoundary"
-import AuthProvider from "@/providers/AuthProvider"
-import NavigationProvider from "@/providers/NavigationProvider"
-import ThemeProvider from "@/providers/theme/ThemeProvider"
-import { customFontsToLoad } from "@/providers/theme/typography"
-import { loadDateFnsLocale } from "@/utils/formatDate"
-import { useNavigationPersistence } from "@/utils/navigationUtilities"
-import * as storage from "@/utils/storage"
+import Config from '@/config'
+import { initI18n } from '@/i18n'
+import MainStackNavigator from '@/navigators/MainStackNavigator/MainStackNavigator'
+import { AppErrorBoundary } from '@/providers/AppErrorBoundary'
+import AuthProvider from '@/providers/AuthProvider'
+import NavigationProvider from '@/providers/NavigationProvider'
+import ThemeProvider from '@/providers/theme/ThemeProvider'
+import { customFontsToLoad } from '@/providers/theme/typography'
+import { loadDateFnsLocale } from '@/utils/formatDate'
+import { useNavigationPersistence } from '@/utils/navigationUtilities'
+import * as storage from '@/utils/storage'
 
-export const NAVIGATION_PERSISTENCE_KEY = "NAVIGATION_STATE"
+export const NAVIGATION_PERSISTENCE_KEY = 'NAVIGATION_STATE'
 
 // Web linking configuration
 // const prefix = Linking.createURL("/")

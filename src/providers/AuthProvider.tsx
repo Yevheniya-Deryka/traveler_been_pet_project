@@ -1,8 +1,9 @@
-import { createContext, FC, PropsWithChildren, useCallback, useContext, useMemo } from "react"
-import { useMMKVString } from "react-native-mmkv"
+import { createContext, FC, PropsWithChildren, useCallback, useContext, useMemo } from 'react'
+import { useMMKVString } from 'react-native-mmkv'
 
 export type AuthContextType = {
 	isAuthenticated: boolean
+	userId?: string
 	authToken?: string
 	authEmail?: string
 	setAuthToken: (token?: string) => void
@@ -13,30 +14,33 @@ export type AuthContextType = {
 
 export const AuthContext = createContext<AuthContextType | null>(null)
 
-export const useAuth = () => {
+export const useAuthContext = () => {
 	const context = useContext(AuthContext)
-	if (!context) throw new Error("useAuth must be used within an AuthProvider")
+	if (!context) throw new Error('useAuth must be used within an AuthProvider')
 	return context
 }
 
 const AuthProvider: FC<PropsWithChildren> = ({ children }) => {
-	const [authToken, setAuthToken] = useMMKVString("AuthProvider.authToken")
-	const [authEmail, setAuthEmail] = useMMKVString("AuthProvider.authEmail")
+	const [authToken, setAuthToken] = useMMKVString('AuthProvider.authToken')
+	const [authEmail, setAuthEmail] = useMMKVString('AuthProvider.authEmail')
+
+	const userId = 'user-id' // Placeholder for now
 
 	const logout = useCallback(() => {
 		setAuthToken(undefined)
-		setAuthEmail("")
+		setAuthEmail('')
 	}, [setAuthEmail, setAuthToken])
 
 	const validationError = useMemo(() => {
 		if (!authEmail || authEmail.length === 0) return "can't be blank"
-		if (authEmail.length < 6) return "must be at least 6 characters"
-		if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(authEmail)) return "must be a valid email address"
-		return ""
+		if (authEmail.length < 6) return 'must be at least 6 characters'
+		if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(authEmail)) return 'must be a valid email address'
+		return ''
 	}, [authEmail])
 
 	const value = {
 		isAuthenticated: !!authToken,
+		userId, // Placeholder for now
 		authToken,
 		authEmail,
 		setAuthToken,

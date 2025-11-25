@@ -1,15 +1,15 @@
-import { createNativeStackNavigator } from "@react-navigation/native-stack"
+import { createNativeStackNavigator } from '@react-navigation/native-stack'
 
-// import { useAuth } from "@/context/AuthContext"
-// import { LoginScreen } from "@/screens/LoginScreen"
-import BottomTabsNavigator from "@/navigators/BottomTabsNavigator/BottomTabsNavigator"
-import { MainStackParamList, MainStackScreens } from "@/navigators/MainStackNavigator/MainStackNavigator.types"
-import { useAppTheme } from "@/providers/theme/ThemeProvider"
+// import { useAuthContext } from '@/providers/AuthProvider'
+// import { LoginScreen } from '@/screens/LoginScreen'
+import BottomTabsNavigator from '@/navigators/BottomTabsNavigator/BottomTabsNavigator'
+import { MainStackParamList, MainStackScreens } from '@/navigators/MainStackNavigator/MainStackNavigator.types'
+import { useAppTheme } from '@/providers/theme/ThemeProvider'
 
 const Stack = createNativeStackNavigator<MainStackParamList>()
 
 const MainStackNavigator = () => {
-	// const { isAuthenticated } = useAuth()
+	// const { isAuthenticated } = useAuthContext()
 
 	const {
 		theme: { colors },
