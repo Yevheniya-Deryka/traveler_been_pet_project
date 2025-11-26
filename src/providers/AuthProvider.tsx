@@ -1,5 +1,11 @@
 import { createContext, FC, PropsWithChildren, useCallback, useContext, useEffect, useState } from 'react'
-import { getAuth, onAuthStateChanged, FirebaseAuthTypes } from '@react-native-firebase/auth'
+import {
+	getAuth,
+	onAuthStateChanged,
+	FirebaseAuthTypes,
+	GoogleAuthProvider,
+	signInWithCredential,
+} from '@react-native-firebase/auth'
 import {
 	GoogleSignin,
 	isErrorWithCode,
@@ -11,6 +17,7 @@ export type AuthContextType = {
 	isInitialized: boolean
 	userId?: string
 	signInWithGoogle: () => Promise<void>
+	logOut: () => Promise<void>
 }
 
 GoogleSignin.configure()
@@ -19,8 +26,17 @@ const signInWithGoogle = async () => {
 	try {
 		await GoogleSignin.hasPlayServices()
 		const response = await GoogleSignin.signIn()
+
 		if (isSuccessResponse(response)) {
-			// handle successful sign in here
+			const idToken = response.data?.idToken
+
+			if (!idToken) {
+				// handle missing id token
+				throw new Error('No ID token found')
+			}
+
+			const googleCredential = GoogleAuthProvider.credential(idToken)
+			await signInWithCredential(getAuth(), googleCredential)
 		} else {
 			// sign in was cancelled by user
 		}
@@ -40,6 +56,11 @@ const signInWithGoogle = async () => {
 			// an error that's not related to google sign in occurred
 		}
 	}
+}
+
+const logOut = async () => {
+	const auth = getAuth()
+	await auth.signOut()
 }
 
 export const AuthContext = createContext<AuthContextType | null>(null)
@@ -74,6 +95,7 @@ const AuthProvider: FC<PropsWithChildren> = ({ children }) => {
 		isInitialized,
 		userId: user?.uid,
 		signInWithGoogle,
+		logOut,
 	}
 
 	return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>

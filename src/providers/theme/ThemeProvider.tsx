@@ -1,9 +1,9 @@
-import { createContext, FC, PropsWithChildren, useCallback, useContext, useEffect, useMemo } from "react"
-import { StyleProp, useColorScheme } from "react-native"
-import { DarkTheme as NavDarkTheme, DefaultTheme as NavDefaultTheme, Theme as NavTheme } from "@react-navigation/native"
-import { useMMKVString } from "react-native-mmkv"
+import { createContext, FC, PropsWithChildren, useCallback, useContext, useEffect, useMemo } from 'react'
+import { StyleProp, useColorScheme } from 'react-native'
+import { DarkTheme as NavDarkTheme, DefaultTheme as NavDefaultTheme, Theme as NavTheme } from '@react-navigation/native'
+import { useMMKVString } from 'react-native-mmkv'
 
-import { darkTheme, lightTheme } from "@/providers/theme/theme"
+import { darkTheme, lightTheme } from '@/providers/theme/theme'
 import type {
 	AllowedStylesT,
 	ImmutableThemeContextModeT,
@@ -11,9 +11,9 @@ import type {
 	ThemeContextModeT,
 	ThemedFnT,
 	ThemedStyle,
-} from "@/providers/theme/types"
-import { setImperativeTheming } from "@/providers/theme/utils"
-import { storage } from "@/utils/storage"
+} from '@/providers/theme/types'
+import { setImperativeTheming } from '@/providers/theme/utils'
+import { storage } from '@/utils/storage'
 
 export type ThemeContextType = {
 	navigationTheme: NavTheme
@@ -32,7 +32,7 @@ export const ThemeContext = createContext<ThemeContextType | null>(null)
 export const useAppTheme = () => {
 	const context = useContext(ThemeContext)
 	if (!context) {
-		throw new Error("useAppTheme must be used within an ThemeProvider")
+		throw new Error('useAppTheme must be used within an ThemeProvider')
 	}
 	return context
 }
@@ -50,7 +50,7 @@ const ThemeProvider: FC<PropsWithChildren<ThemeProviderProps>> = ({ children, in
 	// The operating system theme:
 	const systemColorScheme = useColorScheme()
 	// Our saved theme context: can be "light", "dark", or undefined (system theme)
-	const [themeScheme, setThemeScheme] = useMMKVString("ignite.themeScheme", storage)
+	const [themeScheme, setThemeScheme] = useMMKVString('ignite.themeScheme', storage)
 
 	/**
 	 * This function is used to set the theme context and is exported from the useAppTheme() hook.
@@ -71,13 +71,13 @@ const ThemeProvider: FC<PropsWithChildren<ThemeProviderProps>> = ({ children, in
 	 * systemColorScheme is the value from the device. If undefined, we fall back to "light"
 	 */
 	const themeContext: ImmutableThemeContextModeT = useMemo(() => {
-		const t = initialContext || themeScheme || (!!systemColorScheme ? systemColorScheme : "light")
-		return t === "dark" ? "dark" : "light"
+		const t = initialContext || themeScheme || (!!systemColorScheme ? systemColorScheme : 'light')
+		return t === 'dark' ? 'dark' : 'light'
 	}, [initialContext, themeScheme, systemColorScheme])
 
 	const theme: Theme = useMemo(() => {
 		switch (themeContext) {
-			case "dark":
+			case 'dark':
 				return darkTheme
 			default:
 				return lightTheme
@@ -85,7 +85,7 @@ const ThemeProvider: FC<PropsWithChildren<ThemeProviderProps>> = ({ children, in
 	}, [themeContext])
 
 	const navigationTheme: NavTheme = useMemo(() => {
-		const baseTheme = themeContext === "dark" ? NavDarkTheme : NavDefaultTheme
+		const baseTheme = themeContext === 'dark' ? NavDarkTheme : NavDefaultTheme
 		return {
 			...baseTheme,
 			colors: {
@@ -103,7 +103,7 @@ const ThemeProvider: FC<PropsWithChildren<ThemeProviderProps>> = ({ children, in
 		<T,>(styleOrStyleFn: AllowedStylesT<T>) => {
 			const flatStyles = [styleOrStyleFn].flat(3) as (ThemedStyle<T> | StyleProp<T>)[]
 			const stylesArray = flatStyles.map((f) => {
-				if (typeof f === "function") {
+				if (typeof f === 'function') {
 					return (f as ThemedStyle<T>)(theme)
 				} else {
 					return f

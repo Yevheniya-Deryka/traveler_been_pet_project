@@ -1,38 +1,38 @@
 const palette = {
-	neutral100: "#FFFFFF",
-	neutral200: "#F5F7FA",
-	neutral300: "#E4E8EE",
-	neutral400: "#C7CED9",
-	neutral500: "#9BA4B1",
-	neutral600: "#6E7785",
-	neutral700: "#4A5059",
-	neutral800: "#2D3238",
-	neutral900: "#1A1D21",
+	neutral100: '#FFFFFF',
+	neutral200: '#F5F7FA',
+	neutral300: '#E4E8EE',
+	neutral400: '#C7CED9',
+	neutral500: '#9BA4B1',
+	neutral600: '#6E7785',
+	neutral700: '#4A5059',
+	neutral800: '#2D3238',
+	neutral900: '#1A1D21',
 
-	primary100: "#E3F6FB",
-	primary200: "#B5E7F4",
-	primary300: "#7FD3EC",
-	primary400: "#47BEE3",
-	primary500: "#1EA8D6",
-	primary600: "#008EBE",
+	primary100: '#E3F6FB',
+	primary200: '#B5E7F4',
+	primary300: '#7FD3EC',
+	primary400: '#47BEE3',
+	primary500: '#1EA8D6',
+	primary600: '#008EBE',
 
-	secondary100: "#FFF2E5",
-	secondary200: "#FFD8B3",
-	secondary300: "#FFB874",
-	secondary400: "#FF9B3C",
-	secondary500: "#F9820F",
+	secondary100: '#FFF2E5',
+	secondary200: '#FFD8B3',
+	secondary300: '#FFB874',
+	secondary400: '#FF9B3C',
+	secondary500: '#F9820F',
 
-	accent100: "#D9F5F0",
-	accent200: "#A6E9DC",
-	accent300: "#6AD7C3",
-	accent400: "#2DC3AA",
-	accent500: "#00AA8F",
+	accent100: '#D9F5F0',
+	accent200: '#A6E9DC',
+	accent300: '#6AD7C3',
+	accent400: '#2DC3AA',
+	accent500: '#00AA8F',
 
-	angry100: "#FFE2DD",
-	angry500: "#E53935",
+	angry100: '#FFE2DD',
+	angry500: '#E53935',
 
-	overlay20: "rgba(26, 29, 33, 0.2)",
-	overlay50: "rgba(26, 29, 33, 0.5)",
+	overlay20: 'rgba(26, 29, 33, 0.2)',
+	overlay50: 'rgba(26, 29, 33, 0.5)',
 } as const
 
 export const colors = {
@@ -45,7 +45,7 @@ export const colors = {
 	/**
 	 * A helper for making something see-thru.
 	 */
-	transparent: "rgba(0, 0, 0, 0)",
+	transparent: 'rgba(0, 0, 0, 0)',
 	/**
 	 * The default text color in many components.
 	 */

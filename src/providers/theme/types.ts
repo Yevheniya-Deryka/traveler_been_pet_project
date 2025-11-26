@@ -1,13 +1,13 @@
-import type { StyleProp } from "react-native"
+import type { StyleProp } from 'react-native'
 
-import { colors as colorsLight } from "./colors"
-import { colors as colorsDark } from "./colorsDark"
-import { spacing as spacingLight } from "./spacing"
-import { spacing as spacingDark } from "./spacingDark"
-import { timing } from "./timing"
-import { typography } from "./typography"
+import { colors as colorsLight } from './colors'
+import { colors as colorsDark } from './colorsDark'
+import { spacing as spacingLight } from './spacing'
+import { spacing as spacingDark } from './spacingDark'
+import { timing } from './timing'
+import { typography } from './typography'
 
-export type ImmutableThemeContextModeT = "light" | "dark"
+export type ImmutableThemeContextModeT = 'light' | 'dark'
 export type ThemeContextModeT = ImmutableThemeContextModeT | undefined
 
 export type Colors = typeof colorsLight | typeof colorsDark
