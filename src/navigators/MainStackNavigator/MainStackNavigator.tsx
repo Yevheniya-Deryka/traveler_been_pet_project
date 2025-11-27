@@ -4,6 +4,7 @@ import BottomTabsNavigator from '@/navigators/BottomTabsNavigator/BottomTabsNavi
 import { MainStackParamList, MainStackScreens } from '@/navigators/MainStackNavigator/MainStackNavigator.types'
 import { useAuthContext } from '@/providers/AuthProvider'
 import { useAppTheme } from '@/providers/theme/ThemeProvider'
+import NewPlaceScreen from '@/screens/NewPlaceScreen'
 
 import AuthStackNavigator from '../AuthStackNavigator/AuthStackNavigator'
 
@@ -37,6 +38,7 @@ const MainStackNavigator = () => {
 			initialRouteName={MainStackScreens.Main}
 		>
 			<Stack.Screen name={MainStackScreens.Main} component={BottomTabsNavigator} />
+			<Stack.Screen name={MainStackScreens.NewPlace} component={NewPlaceScreen} />
 		</Stack.Navigator>
 	)
 }

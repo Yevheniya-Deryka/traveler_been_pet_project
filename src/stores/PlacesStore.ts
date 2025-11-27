@@ -1,4 +1,5 @@
 import { makeAutoObservable } from 'mobx'
+import { LatLng } from 'react-native-maps'
 
 export type Place = {
 	id: string
@@ -17,6 +18,8 @@ export type Place = {
 class PlacesStore {
 	private places = new Map<string, Place>()
 
+	public tempMarkerCoordinate?: LatLng | undefined
+
 	constructor() {
 		makeAutoObservable(this)
 	}
@@ -31,6 +34,15 @@ class PlacesStore {
 
 	get userPlaces() {
 		return Array.from(this.places.values())
+	}
+
+	public setTempMarkerCoordinate = (coordinate: LatLng | undefined) => {
+		console.log('Setting temp marker coordinate to:', coordinate)
+		this.tempMarkerCoordinate = coordinate
+	}
+
+	public clearTempMarkerCoordinate = () => {
+		this.tempMarkerCoordinate = undefined
 	}
 }
 

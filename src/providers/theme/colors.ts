@@ -82,4 +82,8 @@ export const colors = {
 	 * Error Background.
 	 */
 	errorBackground: palette.angry100,
+	/* Main button background color */
+	buttonBackground: palette.primary500,
+	/* Main button text color */
+	buttonElement: palette.neutral700,
 } as const

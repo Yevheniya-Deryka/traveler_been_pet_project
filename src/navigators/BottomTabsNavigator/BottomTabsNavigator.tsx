@@ -8,7 +8,7 @@ import { translate } from '@/i18n/translate'
 import { useAppTheme } from '@/providers/theme/ThemeProvider'
 import type { ThemedStyle } from '@/providers/theme/types'
 import FriendsScreen from '@/screens/FriendsScreen'
-import MapScreen from '@/screens/MapScreen'
+import MapScreen from '@/screens/MapScreen/MapScreen'
 import SettingsScreen from '@/screens/SettingsScreen/SettingsScreen'
 import StatsScreen from '@/screens/StatsScreen'
 
