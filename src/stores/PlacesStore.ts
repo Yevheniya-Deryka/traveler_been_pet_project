@@ -1,4 +1,4 @@
-import { makeAutoObservable } from 'mobx'
+import { makeObservable, observable, action, computed } from 'mobx'
 import { LatLng } from 'react-native-maps'
 
 export type Place = {
@@ -16,12 +16,19 @@ export type Place = {
 }
 
 class PlacesStore {
-	private places = new Map<string, Place>()
-
-	public tempMarkerCoordinate?: LatLng | undefined
+	public places = new Map<string, Place>()
+	public tempMarkerCoordinate?: LatLng = undefined
 
 	constructor() {
-		makeAutoObservable(this)
+		// Using MakeAutoObservable without decorators needs additional babel configuration that causes issues for other libraries
+		makeObservable(this, {
+			places: observable,
+			tempMarkerCoordinate: observable,
+			userPlaces: computed,
+			startListening: action,
+			setTempMarkerCoordinate: action,
+			clearTempMarkerCoordinate: action,
+		})
 	}
 
 	public startListening = (_userId: string): (() => void) => {
@@ -37,7 +44,6 @@ class PlacesStore {
 	}
 
 	public setTempMarkerCoordinate = (coordinate: LatLng | undefined) => {
-		console.log('Setting temp marker coordinate to:', coordinate)
 		this.tempMarkerCoordinate = coordinate
 	}
 

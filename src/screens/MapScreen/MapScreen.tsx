@@ -1,4 +1,4 @@
-import { useCallback } from 'react'
+import { FC, useCallback } from 'react'
 import { View, ViewStyle, StyleSheet, Platform } from 'react-native'
 import { observer } from 'mobx-react-lite'
 import MapView, { LongPressEvent, Marker, PROVIDER_GOOGLE } from 'react-native-maps'
@@ -8,7 +8,7 @@ import { usePlacesStore } from '@/stores'
 
 import NewPlaceButton from './NewPlaceButton'
 
-const MapScreen = () => {
+const MapScreen: FC = () => {
 	const {
 		theme: { colors },
 	} = useAppTheme()
@@ -17,7 +17,7 @@ const MapScreen = () => {
 	const handleLongPress = useCallback(
 		(event: LongPressEvent) => {
 			const coordinate = event.nativeEvent.coordinate
-			setTempMarkerCoordinate(coordinate)
+			setTempMarkerCoordinate({ latitude: coordinate.latitude, longitude: coordinate.longitude })
 		},
 		[setTempMarkerCoordinate],
 	)
@@ -28,7 +28,6 @@ const MapScreen = () => {
 		}
 	}, [setTempMarkerCoordinate, tempMarkerCoordinate])
 
-	console.log(tempMarkerCoordinate)
 	return (
 		<View style={$screen}>
 			<MapView
@@ -43,7 +42,12 @@ const MapScreen = () => {
 				onLongPress={handleLongPress}
 				onPress={handlePress}
 			>
-				{tempMarkerCoordinate && <Marker pinColor={colors.tint} coordinate={tempMarkerCoordinate} />}
+				{tempMarkerCoordinate && (
+					<Marker
+						pinColor={colors.tint}
+						coordinate={{ latitude: tempMarkerCoordinate.latitude, longitude: tempMarkerCoordinate.longitude }}
+					/>
+				)}
 			</MapView>
 			{tempMarkerCoordinate && (
 				<NewPlaceButton latitude={tempMarkerCoordinate.latitude} longitude={tempMarkerCoordinate.longitude} />
