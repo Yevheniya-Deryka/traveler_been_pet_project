@@ -9,6 +9,7 @@ const en = {
 		areYouSure: 'Are you sure?',
 		confirmLogOut: 'Do you really want to log out?',
 		logOutError: 'Oops! Log out error. Try again.',
+		imagePickerError: 'An error occurred while picking the image. Please try again.',
 	},
 	emptyStateComponent: {
 		generic: {
@@ -48,6 +49,24 @@ const en = {
 		darkTheme: 'Dark Theme',
 		yourAccount: 'Your Account',
 		logOut: 'Log Out',
+	},
+	newPlaceScreen: {
+		placeName: 'Place Name',
+		placeNamePlaceholder: 'Enter place name',
+		dateVisited: 'Date Visited',
+		selectDate: 'Select date',
+		coverPhoto: 'Cover Photo',
+		pickCoverPhoto: 'Pick cover photo',
+		coverPhotoSelected: 'Cover photo selected',
+		note: 'Note',
+		addNote: 'Add a note',
+		privacy: 'Privacy',
+		public: 'Public',
+		private: 'Private',
+		photos: 'Photos',
+		addPhotos: 'Add photos',
+		photosAdded: '{{count}} photo(s) added',
+		savePlace: 'Save Place',
 	},
 }
 

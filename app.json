@@ -29,7 +29,20 @@
     "icon": "./assets/images/app-icon-ios.png",
     "supportsTablet": true,
     "googleServicesFile": "./GoogleService-Info.plist",
-    "bundleIdentifier": "com.traveler.been"
+    "bundleIdentifier": "com.traveler.been",
+    "privacyManifests": {
+      "NSPrivacyAccessedAPITypes": [
+        {
+          "NSPrivacyAccessedAPIType": "NSPrivacyAccessedAPICategoryUserDefaults",
+          "NSPrivacyAccessedAPITypeReasons": [
+            "CA92.1"
+          ]
+        }
+      ]
+    },
+    "infoPlist": {
+      "ITSAppUsesNonExemptEncryption": false
+    }
   },
   "web": {
     "favicon": "./assets/images/app-icon-web-favicon.png",
@@ -37,6 +50,7 @@
   },
   "plugins": [
     "expo-localization",
+		"expo-image-picker",
     "@react-native-firebase/app",
     "@react-native-firebase/auth",
     "expo-font",
@@ -58,17 +72,17 @@
         }
       }
     ],
-		[
+    [
       "expo-build-properties",
       {
         "ios": {
           "useFrameworks": "static",
-					"forceStaticLinking": [
-              "RNFBApp",
-              "RNFBAuth",
-              "RNFBFirestore",
-              "RNFBStorage"
-            ]
+          "forceStaticLinking": [
+            "RNFBApp",
+            "RNFBAuth",
+            "RNFBFirestore",
+            "RNFBStorage"
+          ]
         }
       }
     ]

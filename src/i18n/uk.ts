@@ -11,6 +11,7 @@ const uk: Translations = {
 		areYouSure: 'Ви впевнені?',
 		confirmLogOut: 'Ви дійсно хочете вийти?',
 		logOutError: 'Ой! Помилка виходу. Спробуйте ще раз.',
+		imagePickerError: 'Сталася помилка під час вибору зображення. Будь ласка, спробуйте ще раз.',
 	},
 	emptyStateComponent: {
 		generic: {
@@ -50,6 +51,24 @@ const uk: Translations = {
 		darkTheme: 'Темна тема',
 		yourAccount: 'Ваш акаунт',
 		logOut: 'Вийти',
+	},
+	newPlaceScreen: {
+		placeName: 'Назва місця',
+		placeNamePlaceholder: 'Введіть назву місця',
+		dateVisited: 'Дата відвідування',
+		selectDate: 'Виберіть дату',
+		coverPhoto: 'Обкладинка',
+		pickCoverPhoto: 'Вибрати обкладинку',
+		coverPhotoSelected: 'Обкладинку вибрано',
+		note: 'Нотатка',
+		addNote: 'Додати нотатку',
+		privacy: 'Приватність',
+		public: 'Публічне',
+		private: 'Приватне',
+		photos: 'Фото',
+		addPhotos: 'Додати фото',
+		photosAdded: 'Додано фото: {{count}}',
+		savePlace: 'Зберегти місце',
 	},
 }
 
