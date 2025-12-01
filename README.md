@@ -1,77 +1,62 @@
-# Welcome to your new ignited app!
+# Been
 
-> The latest and greatest boilerplate for Infinite Red opinions
+A React Native mobile application for storing and sharing the places you've been to create your personal travel map.
 
-This is the boilerplate that [Infinite Red](https://infinite.red) uses as a way to test bleeding-edge changes to our React Native stack.
+## Overview
 
-- [Quick start documentation](https://github.com/infinitered/ignite/blob/master/docs/boilerplate/Boilerplate.md)
-- [Full documentation](https://github.com/infinitered/ignite/blob/master/docs/README.md)
+**Been** helps you keep track of all the amazing places you've visited. Pin locations on an interactive map, add photos, and build a visual diary of your travels. Share your favorite spots with friends and discover where others have been.
+
+## Features
+
+### Current Features
+- **Interactive Maps**: Browse and pin locations using `react-native-maps`
+- **Personal Travel Diary**: Store all the places you've visited
+- **Photo Attachments**: Add photos to your pinned locations
+- **Secure Authentication**: User authentication powered by Firebase Auth
+- **Cloud Storage**: All your places and photos safely stored in Firebase Firestore and Storage
+
+### Coming Soon
+- **Social Sharing**: Share your pinned places and photos with other users
+- **Friend Connections**: Connect with friends and explore their travel maps
+- **Collaborative Collections**: Create and share collections of places with groups
+
+## Technology Stack
+
+- **React Native** with **Expo** for cross-platform mobile development
+- **TypeScript** for type-safe code
+- **react-native-maps** for interactive map functionality
+- **Firebase** ecosystem:
+  - Firebase Authentication
+  - Cloud Firestore (database)
+  - Firebase Storage (photos)
+- **MobX State Tree** for state management
 
 ## Getting Started
 
-```bash
+### Prerequisites
+
+- Node.js (v16 or higher)
+- Yarn package manager
+- iOS Simulator (macOS) or Android Studio
+
+- Follow **.env.example** to add your **Google Maps keys** (need to be generated from Google Cloude account)
+- **google-services.json** and **GoogleService-Info.plist** need to be added to the root folder (need to be generated from Firebase console)
+
+### Installation
+
+\`\`\`bash
+# Install dependencies
 yarn install
+
+# Start the development server
 yarn start
-```
+\`\`\`
 
-To make things work on your local simulator, or on your phone, you need first to [run `eas build`](https://github.com/infinitered/ignite/blob/master/docs/expo/EAS.md). We have many shortcuts on `package.json` to make it easier:
+### Building for Devices
 
-```bash
-yarn build:ios:sim # build for ios simulator
-yarn build:ios:device # build for ios device
-yarn build:ios:prod # build for ios device
-```
+\`\`\`bash
+# Build for iOS simulator
+yarn build:ios:sim
 
-### `./assets` directory
-
-This directory is designed to organize and store various assets, making it easy for you to manage and use them in your application. The assets are further categorized into subdirectories, including `icons` and `images`:
-
-```tree
-assets
-├── icons
-└── images
-```
-
-**icons**
-This is where your icon assets will live. These icons can be used for buttons, navigation elements, or any other UI components. The recommended format for icons is PNG, but other formats can be used as well.
-
-Ignite comes with a built-in `Icon` component. You can find detailed usage instructions in the [docs](https://github.com/infinitered/ignite/blob/master/docs/boilerplate/app/components/Icon.md).
-
-**images**
-This is where your images will live, such as background images, logos, or any other graphics. You can use various formats such as PNG, JPEG, or GIF for your images.
-
-Another valuable built-in component within Ignite is the `AutoImage` component. You can find detailed usage instructions in the [docs](https://github.com/infinitered/ignite/blob/master/docs/Components-AutoImage.md).
-
-How to use your `icon` or `image` assets:
-
-```typescript
-import { Image } from 'react-native';
-
-const MyComponent = () => {
-  return (
-    <Image source={require('assets/images/my_image.png')} />
-  );
-};
-```
-
-## Running Maestro end-to-end tests
-
-Follow our [Maestro Setup](https://ignitecookbook.com/docs/recipes/MaestroSetup) recipe.
-
-## Next Steps
-
-### Ignite Cookbook
-
-[Ignite Cookbook](https://ignitecookbook.com/) is an easy way for developers to browse and share code snippets (or “recipes”) that actually work.
-
-### Upgrade Ignite boilerplate
-
-Read our [Upgrade Guide](https://ignitecookbook.com/docs/recipes/UpdatingIgnite) to learn how to upgrade your Ignite project.
-
-## Community
-
-⭐️ Help us out by [starring on GitHub](https://github.com/infinitered/ignite), filing bug reports in [issues](https://github.com/infinitered/ignite/issues) or [ask questions](https://github.com/infinitered/ignite/discussions).
-
-💬 Join us on [Slack](https://join.slack.com/t/infiniteredcommunity/shared_invite/zt-1f137np4h-zPTq_CbaRFUOR_glUFs2UA) to discuss.
-
-📰 Make our Editor-in-chief happy by [reading the React Native Newsletter](https://reactnativenewsletter.com/).
+# Build for iOS device
+yarn build:ios:device
