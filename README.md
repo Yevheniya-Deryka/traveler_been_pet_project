@@ -44,19 +44,16 @@ A React Native mobile application for storing and sharing the places you've been
 
 ### Installation
 
-\`\`\`bash
-# Install dependencies
+**Install dependencies**
 yarn install
 
-# Start the development server
+**Start the development server**
 yarn start
-\`\`\`
 
 ### Building for Devices
 
-\`\`\`bash
-# Build for iOS simulator
+**Build for iOS simulator**
 yarn build:ios:sim
 
-# Build for iOS device
+**Build for iOS device**
 yarn build:ios:device
